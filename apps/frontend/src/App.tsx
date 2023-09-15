@@ -1,9 +1,4 @@
-
 export const App = () => {
-
-  return (
-    <>
-        Life tracker
-    </>
-  )
+  const string = 'Hello world'
+  return <>{string}</>
 }
