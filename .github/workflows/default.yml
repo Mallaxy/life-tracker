@@ -24,10 +24,10 @@ jobs:
         cache-dependency-path: apps/frontend/pnpm-lock.yaml
       
     - name: Install dependencies
-      run: cd ./app/frontend && pnpm install
+      run: cd ./apps/frontend && pnpm install
 
     - name: Build
-      run: cd ./app/frontend && pnpm build
+      run: cd ./apps/frontend && pnpm build
       
     - name: Lint
-      run: cd ./app/frontend && pnpm lint
+      run: cd ./apps/frontend && pnpm lint
