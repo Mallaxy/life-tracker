@@ -1,9 +1,8 @@
-name: Build and Deploy
+name: CI / CD
 
-on: 
-  push:
-    branches:
-      - master
+on:
+  pull_request:
+    types: [ opened, edited, synchronize, reopened ]
 
 jobs:
   frontend:
@@ -22,12 +21,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
+        cache-dependency-path: apps/frontend/pnpm-lock.yaml
       
     - name: Install dependencies
-      run: cd ./app/frontend && pnpm install
+      run: cd ./apps/frontend && pnpm install
 
     - name: Build
-      run: cd ./app/frontend && pnpm build
+      run: cd ./apps/frontend && pnpm build
       
     - name: Lint
-      run: cd ./app/frontend && pnpm lint
+      run: cd ./apps/frontend && pnpm lint
