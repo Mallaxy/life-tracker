@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches:  ['master']
+
+jobs:
+  frontend:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [19]
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+        cache-dependency-path: apps/frontend/pnpm-lock.yaml
+      
+    - name: Install dependencies
+      run: cd ./apps/frontend && pnpm install
+
+    - name: Build
+      run: cd ./apps/frontend && pnpm build
+      
+    - name: Lint
+      run: cd ./apps/frontend && pnpm lint
