@@ -1,6 +1,5 @@
 # Life Tracker
 
-Handy tracker for your life.
 Kitchen helper.
 
 ## Setup Guide for frontend
@@ -10,3 +9,8 @@ Kitchen helper.
 2 - `cd ./life-tracker/apps/frontend && pnpm install` Install project packages
 3 - `pnpm prepare ` Install pre-commit
 4 - `pnpm dev ` Start the project
+
+
+## Environment variables
+
+For accessing DB you need setup .env file. To get it contact administrator tema1660@gmail.com

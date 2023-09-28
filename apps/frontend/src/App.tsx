@@ -1,13 +1,10 @@
-import { PageContainer } from './layout/PageContainer.tsx'
-import { Typography } from '@mui/material'
-import { DeleteButton } from './components/atoms'
-export const App = () => {
-  const string = 'Hello world + test+'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './pages/Router.tsx'
 
+export const App = () => {
   return (
-    <PageContainer>
-      <DeleteButton />
-      <Typography variant='h2'>{string}</Typography>
-    </PageContainer>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
