@@ -1,12 +1,21 @@
 import { FC, ReactNode } from 'react'
 import { Container, styled } from '@mui/material'
+import { TemporaryDrawer } from '../features/Sidebar/Sidebar'
+import { Outlet } from 'react-router-dom'
 
 interface PageContainerProps {
   children?: ReactNode
 }
 
-export const PageContainer: FC<PageContainerProps> = ({ children }) => {
-  return <StyledContainer>{children}</StyledContainer>
+export const PageContainer: FC<PageContainerProps> = () => {
+  return (
+    <>
+      <TemporaryDrawer></TemporaryDrawer>
+      <StyledContainer>
+        <Outlet />
+      </StyledContainer>
+    </>
+  )
 }
 
 const StyledContainer = styled(Container)`
