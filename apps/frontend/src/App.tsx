@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { PageContainer } from './layout/PageContainer'
 import { Home } from './pages/Home/Home'
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage'
-import { NAVIGATION_ROUTES } from './constants/routes'
+import { NAVIGATION_ROUTES } from './constants'
 import { IngredientsBase } from './pages/Ingredients/IngredientsBase.tsx'
 import { IngredientCreation } from './pages/Ingredients/IngredientCreation.tsx'
 
