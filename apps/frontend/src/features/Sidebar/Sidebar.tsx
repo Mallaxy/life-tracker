@@ -16,8 +16,9 @@ type NavigationItem = {
 }
 
 const navigationItems: NavigationItem[] = [
-  { title: 'Recepies', path: NAVIGATION_ROUTES.Recepies },
-  { title: 'Tobuy', path: NAVIGATION_ROUTES.Tobuy },
+  { title: 'Home', path: NAVIGATION_ROUTES.Home },
+  { title: 'Recipes', path: NAVIGATION_ROUTES.Recipes },
+  { title: 'To Buy', path: NAVIGATION_ROUTES.Tobuy },
   { title: 'Storage', path: NAVIGATION_ROUTES.Storage },
   { title: 'Ingredients', path: NAVIGATION_ROUTES.Ingredients },
 ]

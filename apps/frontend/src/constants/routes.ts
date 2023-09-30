@@ -1,8 +1,11 @@
 export const NAVIGATION_ROUTES = {
-  Storage: 'storage',
-  Tobuy: 'tobuy',
-  Recepies: 'recepies',
-  Ingredients: 'ingredients',
+  Home: '/',
+  Storage: '/storage',
+  Tobuy: '/tobuy',
+  Recipes: '/recipes',
+  Ingredients: '/ingredients',
+  IngredientsCreation: '/ingredients/create',
+  IngredientsEdit: '/ingredients/edit/:id',
   NotFoundPage: '*',
 } as const
 

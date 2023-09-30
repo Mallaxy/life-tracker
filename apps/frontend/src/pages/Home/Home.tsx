@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
 
-import { DeleteButton } from '../../components/atoms'
 import { Typography } from '@mui/material'
 
 interface HomeProps extends PropsWithChildren {}
@@ -10,8 +9,6 @@ export const Home: FC<HomeProps> = () => {
 
   return (
     <>
-      {import.meta.env.BASE_URL}
-      <DeleteButton />
       <Typography variant='h2'>{string}</Typography>
     </>
   )
