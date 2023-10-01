@@ -20,6 +20,14 @@ module.exports = {
             'warn',
             {allowConstantExport: true},
         ],
+        "@typescript-eslint/ban-types": ["error",
+            {
+                "types": {
+                    "{}": false,
+                },
+                "extendDefaults": true
+            }
+        ]
     },
     settings: {
         react: {

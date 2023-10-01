@@ -1,13 +1,7 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
-import Drawer from '@mui/material/Drawer'
-import Button from '@mui/material/Button'
-import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
-import ListItem from '@mui/material/ListItem'
-import ListItemButton from '@mui/material/ListItemButton'
+import { Box, Drawer, Button, List, Divider, ListItem, ListItemButton } from '@mui/material'
 
-import { NavigationRoutesValues, NAVIGATION_ROUTES } from '../../constants/routes'
+import { NavigationRoutesValues, NAVIGATION_ROUTES } from '../../constants'
 import { NavLink } from 'react-router-dom'
 
 type NavigationItem = {
@@ -16,8 +10,9 @@ type NavigationItem = {
 }
 
 const navigationItems: NavigationItem[] = [
-  { title: 'Recepies', path: NAVIGATION_ROUTES.Recepies },
-  { title: 'Tobuy', path: NAVIGATION_ROUTES.Tobuy },
+  { title: 'Home', path: NAVIGATION_ROUTES.Home },
+  { title: 'Recipes', path: NAVIGATION_ROUTES.Recipes },
+  { title: 'To Buy', path: NAVIGATION_ROUTES.Tobuy },
   { title: 'Storage', path: NAVIGATION_ROUTES.Storage },
   { title: 'Ingredients', path: NAVIGATION_ROUTES.Ingredients },
 ]
@@ -47,9 +42,9 @@ export const TemporaryDrawer = () => {
       <List>
         {navigationItems.map((navigationItem) => (
           <ListItem key={navigationItem.title} disablePadding>
-            <ListItemButton>
-              <NavLink to={navigationItem.path}>{navigationItem.title}</NavLink>
-            </ListItemButton>
+            <NavLink to={navigationItem.path} style={{ width: '100%' }}>
+              <ListItemButton>{navigationItem.title}</ListItemButton>
+            </NavLink>
           </ListItem>
         ))}
       </List>
