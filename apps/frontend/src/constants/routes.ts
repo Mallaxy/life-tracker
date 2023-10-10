@@ -13,18 +13,18 @@ export type NavigationRoutesType = Omit<typeof NAVIGATION_ROUTES, 'NotFoundPage'
 
 export type NavigationRoutesValues = NavigationRoutesType[keyof NavigationRoutesType]
 
-export type GetParamKeys<TTranslation extends string> = TTranslation extends ''
+export type GetParamKeys<TPath extends string> = TPath extends ''
   ? []
-  : TTranslation extends `${string}/:${infer Param}/${infer Tail}`
+  : TPath extends `${string}/:${infer Param}/${infer Tail}`
   ? [Param, ...GetParamKeys<Tail>]
-  : TTranslation extends `${string}/:${infer Param}`
+  : TPath extends `${string}/:${infer Param}`
   ? [Param]
   : []
 
-export type GetParamKeysObj<TTranslation extends string> = TTranslation extends ''
+export type GetParamKeysObj<TPath extends string> = TPath extends ''
   ? Record<string, never>
-  : TTranslation extends `${string}/:${infer Param}/${infer Tail}`
+  : TPath extends `${string}/:${infer Param}/${infer Tail}`
   ? { [Key in Param]: string } & GetParamKeysObj<Tail>
-  : TTranslation extends `${string}/:${infer Param}`
+  : TPath extends `${string}/:${infer Param}`
   ? { [Key in Param]: string }
   : Record<string, never>
