@@ -8,7 +8,7 @@ export const ToastProvider: FC<ToastProviderProps> = ({ children }) => {
   return (
     <>
       {children}
-      <ToastContainer />
+      <ToastContainer position='bottom-right' />
     </>
   )
 }

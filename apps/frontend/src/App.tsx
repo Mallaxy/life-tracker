@@ -6,6 +6,7 @@ import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage'
 import { NAVIGATION_ROUTES } from './constants'
 import { IngredientsBase } from './pages/Ingredients/IngredientsBase.tsx'
 import { IngredientCreation } from './pages/Ingredients/IngredientCreation.tsx'
+import { IngredientEdit } from './pages/Ingredients/IngredientEdit.tsx'
 
 export const App = () => {
   return (
@@ -18,7 +19,7 @@ export const App = () => {
           <Route path={NAVIGATION_ROUTES.Recipes} />
           <Route path={NAVIGATION_ROUTES.Ingredients} element={<IngredientsBase />} />
           <Route path={NAVIGATION_ROUTES.IngredientsCreation} element={<IngredientCreation />} />
-          <Route path={NAVIGATION_ROUTES.IngredientsEdit} element={<IngredientCreation />} />
+          <Route path={NAVIGATION_ROUTES.IngredientsEdit} element={<IngredientEdit />} />
           <Route path={NAVIGATION_ROUTES.NotFoundPage} element={<NotFoundPage />} />
         </Route>
       </Routes>
