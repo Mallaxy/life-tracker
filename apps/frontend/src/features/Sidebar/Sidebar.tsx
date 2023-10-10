@@ -3,6 +3,7 @@ import { Box, Drawer, Button, List, Divider, ListItem, ListItemButton } from '@m
 
 import { NavigationRoutesValues, NAVIGATION_ROUTES } from '../../constants'
 import { NavLink } from 'react-router-dom'
+import { NavigateBackButton } from '../../components/atoms'
 
 type NavigationItem = {
   title: string
@@ -17,10 +18,10 @@ const navigationItems: NavigationItem[] = [
   { title: 'Ingredients', path: NAVIGATION_ROUTES.Ingredients },
 ]
 
-export const TemporaryDrawer = () => {
+export const Sidebar = () => {
   const [state, setState] = React.useState(false)
 
-  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+  const toggleSidebar = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event.type === 'keydown' &&
       ((event as React.KeyboardEvent).key === 'Tab' ||
@@ -36,8 +37,8 @@ export const TemporaryDrawer = () => {
     <Box
       sx={{ width: 250 }}
       role='presentation'
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
+      onClick={toggleSidebar(false)}
+      onKeyDown={toggleSidebar(false)}
     >
       <List>
         {navigationItems.map((navigationItem) => (
@@ -53,11 +54,12 @@ export const TemporaryDrawer = () => {
   )
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)}>Menu</Button>
-      <Drawer open={state} onClose={toggleDrawer(false)}>
+    <>
+      <Button onClick={toggleSidebar(true)}>Menu</Button>
+      <NavigateBackButton />
+      <Drawer open={state} onClose={toggleSidebar(false)}>
         {list()}
       </Drawer>
-    </div>
+    </>
   )
 }

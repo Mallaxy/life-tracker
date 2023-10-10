@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import { Container, styled } from '@mui/material'
-import { TemporaryDrawer } from '../features/Sidebar/Sidebar'
+import { Sidebar } from '../features/Sidebar/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { ToastProvider } from './ToastProvider.tsx'
 
@@ -11,7 +11,7 @@ interface PageContainerProps {
 export const PageContainer: FC<PageContainerProps> = () => {
   return (
     <ToastProvider>
-      <TemporaryDrawer></TemporaryDrawer>
+      <Sidebar />
       <StyledContainer>
         <Outlet />
       </StyledContainer>

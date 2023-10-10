@@ -3,12 +3,14 @@ import { Button, List, ListItem, TextField, Typography } from '@mui/material'
 import { useAtomValue } from 'jotai'
 import { ingredientsAtom } from '../../context'
 import { useNavigate } from 'react-router-dom'
-import { NAVIGATION_ROUTES } from '../../constants/routes.ts'
+import { NAVIGATION_ROUTES } from '../../constants'
+import { useNavigateTo } from '../../hooks/useNavigateTo.ts'
 
 interface IngredientsBaseProps extends PropsWithChildren {}
 
 export const IngredientsBase: FC<IngredientsBaseProps> = () => {
   const navigate = useNavigate()
+  const { navigateTo } = useNavigateTo()
   const ingredients = useAtomValue(ingredientsAtom)
 
   const [searchValue, setSearchValue] = useState('')
@@ -37,7 +39,10 @@ export const IngredientsBase: FC<IngredientsBaseProps> = () => {
       </Button>
       <List>
         {filteredIngredients.map((ingredient) => (
-          <ListItem key={ingredient.id}>
+          <ListItem
+            key={ingredient.id}
+            onClick={() => navigateTo('IngredientsEdit', { id: ingredient.id })}
+          >
             <Typography variant='body1'>{ingredient.name}</Typography>
             {'  -  '}
             <Typography variant='body1'>{ingredient.measurement}</Typography>

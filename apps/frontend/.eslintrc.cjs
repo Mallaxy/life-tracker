@@ -14,7 +14,7 @@ module.exports = {
     plugins: ['react-refresh', 'react', 'react-hooks', '@typescript-eslint', 'prettier'],
     rules: {
         'react/react-in-jsx-scope': 'off',
-        'quotes': ['error', 'single'],
+        'quotes': ['off', 'single'],
         'no-duplicate-imports': 'error',
         'react-refresh/only-export-components': [
             'warn',
