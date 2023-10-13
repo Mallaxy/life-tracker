@@ -7,6 +7,7 @@ import { NAVIGATION_ROUTES } from './constants'
 import { IngredientsBase } from './pages/Ingredients/IngredientsBase.tsx'
 import { IngredientCreation } from './pages/Ingredients/IngredientCreation.tsx'
 import { IngredientEdit } from './pages/Ingredients/IngredientEdit.tsx'
+import { IngredientInfo } from './pages/Ingredients/IngredientInfo.tsx'
 
 export const App = () => {
   return (
@@ -18,8 +19,9 @@ export const App = () => {
           <Route path={NAVIGATION_ROUTES.Tobuy} />
           <Route path={NAVIGATION_ROUTES.Recipes} />
           <Route path={NAVIGATION_ROUTES.Ingredients} element={<IngredientsBase />} />
-          <Route path={NAVIGATION_ROUTES.IngredientsCreation} element={<IngredientCreation />} />
-          <Route path={NAVIGATION_ROUTES.IngredientsEdit} element={<IngredientEdit />} />
+          <Route path={NAVIGATION_ROUTES.IngredientInfo} element={<IngredientInfo />} />
+          <Route path={NAVIGATION_ROUTES.IngredientEdit} element={<IngredientEdit />} />
+          <Route path={NAVIGATION_ROUTES.IngredientCreation} element={<IngredientCreation />} />
           <Route path={NAVIGATION_ROUTES.NotFoundPage} element={<NotFoundPage />} />
         </Route>
       </Routes>

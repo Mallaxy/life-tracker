@@ -4,8 +4,9 @@ export const NAVIGATION_ROUTES = {
   Tobuy: '/tobuy',
   Recipes: '/recipes',
   Ingredients: '/ingredients',
-  IngredientsCreation: '/ingredients/create',
-  IngredientsEdit: '/ingredients/edit/:id',
+  IngredientCreation: '/ingredients/create',
+  IngredientEdit: '/ingredient/:id/edit',
+  IngredientInfo: '/ingredient/:id',
   NotFoundPage: '*',
 } as const
 
