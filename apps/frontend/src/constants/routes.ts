@@ -12,19 +12,3 @@ export const NAVIGATION_ROUTES = {
 export type NavigationRoutesType = Omit<typeof NAVIGATION_ROUTES, 'NotFoundPage'>
 
 export type NavigationRoutesValues = NavigationRoutesType[keyof NavigationRoutesType]
-
-export type GetParamKeys<TPath extends string> = TPath extends ''
-  ? []
-  : TPath extends `${string}/:${infer Param}/${infer Tail}`
-  ? [Param, ...GetParamKeys<Tail>]
-  : TPath extends `${string}/:${infer Param}`
-  ? [Param]
-  : []
-
-export type GetParamKeysObj<TPath extends string> = TPath extends ''
-  ? Record<string, never>
-  : TPath extends `${string}/:${infer Param}/${infer Tail}`
-  ? { [Key in Param]: string } & GetParamKeysObj<Tail>
-  : TPath extends `${string}/:${infer Param}`
-  ? { [Key in Param]: string }
-  : Record<string, never>

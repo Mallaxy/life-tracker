@@ -2,15 +2,13 @@ import { FC, PropsWithChildren, useMemo, useState } from 'react'
 import { Button, List, ListItem, TextField, Typography } from '@mui/material'
 import { useAtomValue } from 'jotai'
 import { ingredientsAtom } from '../../context'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { NAVIGATION_ROUTES } from '../../constants'
-import { useNavigateTo } from '../../hooks/useNavigateTo.ts'
+import { IngredientContainer } from '../../components/atoms'
 
 interface IngredientsBaseProps extends PropsWithChildren {}
 
 export const IngredientsBase: FC<IngredientsBaseProps> = () => {
-  const navigate = useNavigate()
-  const { navigateTo } = useNavigateTo()
   const ingredients = useAtomValue(ingredientsAtom)
 
   const [searchValue, setSearchValue] = useState('')
@@ -30,22 +28,17 @@ export const IngredientsBase: FC<IngredientsBaseProps> = () => {
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value ?? '')}
       />
-      <Button
-        variant='contained'
-        color='success'
-        onClick={() => navigate(NAVIGATION_ROUTES.IngredientsCreation)}
-      >
-        Create Ingredient
-      </Button>
+      <Link to={NAVIGATION_ROUTES.IngredientsCreation}>
+        <Button variant='contained' color='success'>
+          Create Ingredient
+        </Button>
+      </Link>
       <List>
         {filteredIngredients.map((ingredient) => (
-          <ListItem
-            key={ingredient.id}
-            onClick={() => navigateTo('IngredientsEdit', { id: ingredient.id })}
-          >
-            <Typography variant='body1'>{ingredient.name}</Typography>
-            {'  -  '}
-            <Typography variant='body1'>{ingredient.measurement}</Typography>
+          <ListItem key={ingredient.id}>
+            <Link to={`edit/${ingredient.id}`}>
+              <IngredientContainer {...ingredient} />
+            </Link>
           </ListItem>
         ))}
       </List>

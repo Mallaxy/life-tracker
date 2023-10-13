@@ -14,3 +14,8 @@ Kitchen helper.
 ## Environment variables
 
 For accessing DB you need setup .env file. To get it contact administrator tema1660@gmail.com
+
+## Notes
+
+To fast create a component you can. **Don't forget to add it into commit**
+- `pnpm generate <atom | molecule | organism | template> <name>`
