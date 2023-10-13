@@ -27,8 +27,6 @@ export const IngredientEdit: FC<IngredientEditProps> = () => {
     navigate(NAVIGATION_ROUTES.Ingredients)
   }
 
-  console.log(ingredient)
-
   if (!ingredient) return <Navigate to={NAVIGATION_ROUTES.Ingredients} />
 
   return (
