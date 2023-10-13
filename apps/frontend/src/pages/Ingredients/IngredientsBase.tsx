@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useMemo, useState } from 'react'
 import { Button, List, ListItem, TextField, Typography } from '@mui/material'
 import { useAtomValue } from 'jotai'
 import { ingredientsAtom } from '../../context'
-import { Link } from 'react-router-dom'
+import { Link, generatePath } from 'react-router-dom'
 import { NAVIGATION_ROUTES } from '../../constants'
 import { IngredientContainer } from '../../components/atoms'
 
@@ -28,7 +28,7 @@ export const IngredientsBase: FC<IngredientsBaseProps> = () => {
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value ?? '')}
       />
-      <Link to={NAVIGATION_ROUTES.IngredientsCreation}>
+      <Link to={NAVIGATION_ROUTES.IngredientCreation}>
         <Button variant='contained' color='success'>
           Create Ingredient
         </Button>
@@ -36,7 +36,11 @@ export const IngredientsBase: FC<IngredientsBaseProps> = () => {
       <List>
         {filteredIngredients.map((ingredient) => (
           <ListItem key={ingredient.id}>
-            <Link to={`edit/${ingredient.id}`}>
+            <Link
+              to={generatePath(NAVIGATION_ROUTES.IngredientInfo, {
+                id: ingredient.id,
+              })}
+            >
               <IngredientContainer {...ingredient} />
             </Link>
           </ListItem>

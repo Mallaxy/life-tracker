@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, useMemo } from 'react'
 import { useAtom } from 'jotai'
 import { ingredientAtom } from '../../context'
 import { Ingredient } from '../../types'
@@ -15,7 +15,7 @@ export const IngredientEdit: FC<IngredientEditProps> = () => {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
 
-  const [ingredient, updateIngredient] = useAtom(ingredientAtom(id))
+  const [ingredient, updateIngredient] = useAtom(useMemo(() => ingredientAtom(id), [id]))
 
   const onSubmit = (newIngredient: Ingredient) => {
     updateIngredient(newIngredient)
