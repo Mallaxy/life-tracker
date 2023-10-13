@@ -8,6 +8,8 @@ import { IngredientsBase } from './pages/Ingredients/IngredientsBase.tsx'
 import { IngredientCreation } from './pages/Ingredients/IngredientCreation.tsx'
 import { IngredientEdit } from './pages/Ingredients/IngredientEdit.tsx'
 import { IngredientInfo } from './pages/Ingredients/IngredientInfo.tsx'
+import { Storage } from './pages/Storage/Storage.tsx'
+import { StorageAdd } from './pages/Storage/StorageAdd.tsx'
 
 export const App = () => {
   return (
@@ -15,7 +17,8 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<PageContainer />}>
           <Route index element={<Home />} />
-          <Route path={NAVIGATION_ROUTES.Storage} />
+          <Route path={NAVIGATION_ROUTES.Storage} element={<Storage />} />
+          <Route path={NAVIGATION_ROUTES.StorageAdd} element={<StorageAdd />} />
           <Route path={NAVIGATION_ROUTES.Tobuy} />
           <Route path={NAVIGATION_ROUTES.Recipes} />
           <Route path={NAVIGATION_ROUTES.Ingredients} element={<IngredientsBase />} />

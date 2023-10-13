@@ -1,6 +1,7 @@
 export const NAVIGATION_ROUTES = {
   Home: '/',
   Storage: '/storage',
+  StorageAdd: '/storage/add',
   Tobuy: '/tobuy',
   Recipes: '/recipes',
   Ingredients: '/ingredients',
