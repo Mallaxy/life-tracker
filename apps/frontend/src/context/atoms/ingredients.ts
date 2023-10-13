@@ -1,7 +1,7 @@
 import { atom } from 'jotai'
-import { Ingredient } from '../types'
+import { Ingredient } from '../../types'
 import { atomWithStorage } from 'jotai/utils'
-import { findAndReplace } from '../helpers'
+import { findAndReplace } from '../../helpers'
 
 export const ingredientsAtom = atomWithStorage<Ingredient[]>('ingredients', [])
 export const ingredientAtom = (ingredientId?: string) =>
